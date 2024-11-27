@@ -86,6 +86,7 @@ if (!empty($heroes)) {
 <!-- <script src="./three/managerScript.js"></script>
 <script src="./three/interfaceLogique.js"></script>
 <script src="./three/gameLogique.js"></script> -->
+<script src="./script.js"></script> 
 
 </body>
 

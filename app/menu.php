@@ -206,7 +206,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'getHeroes') {
   <!-- Musique Menu Principal -->
   <audio id="mainMenuTheme" src="./src/audio/Basileus.mp3" loop></audio>
 
-  <script src="./script.js"></script>
+  <!-- <script src="./script.js"></script> -->
 </body>
 
 </html>

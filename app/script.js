@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("hello" );
+  
   // MARK:Sections Pages
   // Sections des Pages
   const accueilContent = document.querySelector(".accueil-content");
@@ -30,58 +32,127 @@ document.addEventListener("DOMContentLoaded", function () {
   // Audio
   const mainMenuTheme = document.getElementById("mainMenuTheme");
 
-  buttonPlay.addEventListener("click", function () {
-    // alert("pret a jouer ?");
-    const menuBg = document.getElementById("menuBg");
-    const simploniaLogo = document.getElementById("simploniaLogo");
-    const tablePhp = document.getElementById("tablePhp");
-    const canvasGame = document.createElement("canvas");
-    const contentFLexMenuGame = document.createElement("div");
-    const containerMenuGame = document.createElement("div");
+ buttonPlay.addEventListener("click", function () {
+  if (!buttonPlay) {
+    console.error("Le bouton 'buttonPlay' est introuvable dans le DOM !");
+    return;
+  }
 
-    menuContent.style.display = "none";
-    //image dysplay none sans instance ?
-    aqua.style.display = "none";
-    simploniaLogo.style.display = "none";
-    console.log(simploniaLogo);
+  // Masquer les éléments existants
+  const menuBody = document.getElementById("menuBg");
+  const simploniaLogo = document.getElementById("simploniaLogo");
+  const tablePhp = document.getElementById("tablePhp");
 
-    tablePhp.style.display = "none";
+  menuContent.style.display = "none";
+  aqua.style.display = "none";
+  // simploniaLogo.style.display = "none";
+  tablePhp.style.display = "none";
 
-    const storedHeroes = JSON.parse(localStorage.getItem("heroes"));
-    if (storedHeroes) {
-      console.log("Héros récupérés depuis le localStorage :", storedHeroes);
-    }
-    contentFLexMenuGame.cssText = `    
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border: 2px solid red; 
-    width: 100vw; 
-    height: 500px
+  // Créer les nouveaux éléments
+  const contentFlexMenuGame = document.createElement("div");
+  const containerMenuGame = document.createElement("div");
+  const canvasGame = document.createElement("canvas");
+
+  // Appliquer le CSS aux nouveaux éléments
+  menuBg.style.cssText = `
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  `;
+  contentFlexMenuGame.style.cssText = `
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid yellow;
+    width: 100vw;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px);
+  `;
+
+  containerMenuGame.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 30%;
+    min-width: 400px;
+    height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    border: 2px solid yellow;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: inset 20px 20px 60px #bebebe,
+    inset -20px -20px 60px #ffffff;
+  `;
+
+  canvasGame.style.cssText = `
+    border: 2px solid black;
+    width: 60%;
+    min-width: 400px;
+    height: 400px;
     background: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
     backdrop-filter: blur(10px); /* Effet de flou */
-   ` ;
+  `;
+simploniaLogo.style.cssText = `    
+width: 40%;
+position:absolute;
+top:-65px;
+z-index: 1;
 
-    // containerMenuGame.
+`
+  // Ajouter les nouveaux éléments au DOM
+  menuBody.appendChild(simploniaLogo)
+  menuBody.appendChild(contentFlexMenuGame);
+  contentFlexMenuGame.appendChild(containerMenuGame);
+  contentFlexMenuGame.appendChild(canvasGame);
 
-    canvasGame.cssText = `
-    border: 2px solid black; 
-    width:  80%; 
-    min-width:400px
-    height: 400px
-    background: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
-    backdrop-filter: blur(10px); /* Effet de flou */
-    `;
+  // Récupérer les héros depuis le localStorage
+  const storedHeroes = JSON.parse(localStorage.getItem("heroes"));
+  if (storedHeroes) {
+    console.log("Héros récupérés depuis le localStorage :", storedHeroes);
 
-    menuBg.cssText = ` 
-    display : flex,
-    alignItems : center,
-    `;
+    // Mapper les héros en cartes
+    storedHeroes.forEach(hero => {
+      const heroCard = document.createElement("div");
+      heroCard.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 150px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-size: 12px;
+      `;
 
-     menuBg.appendChild(contentFLexMenuGame);
-    contentFLexMenuGame.appendChild(canvasGame);
-    contentFLexMenuGame.appendChild(containerMenuGame);
-  });
+      // Ajouter le contenu de la carte
+      heroCard.innerHTML = `<div>
+        <strong>${hero.name_Hero || "Inconnu"}</strong>
+        <p>XP: ${hero.xp_Hero || 0}</p>
+        <p>Niveau: ${hero.lvl_Hero || 0}</p>
+        <p>Rôle: ${hero.id_Role || "N/A"}</p>
+        </div>
+      `;
+
+      // Ajouter la carte au conteneur
+      containerMenuGame.appendChild(heroCard);
+    });
+  } else {
+    console.warn("Aucun héros trouvé dans le localStorage.");
+  }
+});
+
+  
+
+
+
 
   // MARK:Fonctions
   // Fonctions des affichages des Pages
