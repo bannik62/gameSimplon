@@ -331,3 +331,10 @@ MARK: Personnages
   background: #f0a51a;
   color: black;
 }
+
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

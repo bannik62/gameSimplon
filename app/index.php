@@ -83,10 +83,6 @@ if (!empty($heroes)) {
         console.error('Aucune donnée de héros à sauvegarder.');
     }
 </script>
-<!-- <script src="./three/managerScript.js"></script>
-<script src="./three/interfaceLogique.js"></script>
-<script src="./three/gameLogique.js"></script> -->
-<script src="./script.js"></script> 
 
 </body>
 

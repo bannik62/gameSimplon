@@ -1,6 +1,5 @@
-import * as THREE from "three";
-import { PlayerObject } from './objectsmanager/PlayerObject.mjs';
-
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+import { PlayerObject } from './Objectsmanager/PlayerObject.mjs';
 
 export class SceneManager {
   constructor(backgroundColor = 0x333333) {

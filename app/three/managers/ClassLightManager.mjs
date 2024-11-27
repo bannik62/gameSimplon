@@ -1,10 +1,10 @@
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
 
 export class LightManager {
   constructor(scene) {
     this.scene = scene;
     this.lights = {}; // Stockage des lumières (par type)
-    this.isLightOn = false; // État initial : les lumières sont éteintes
+    this.isLightOn = true; // État initial : les lumières sont éteintes
   }
 
   // Méthode pour activer toutes les lumières

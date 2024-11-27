@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
 
 export class CameraManager {
   constructor({
@@ -36,10 +36,12 @@ export class CameraManager {
   }
 
   // Méthode pour gérer le redimensionnement de la fenêtre
-  onResize() {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
-    this.camera.updateProjectionMatrix();
+  onResize(width, height) {
+    this.camera.aspect = width / height; // Ajuste le rapport largeur/hauteur
+    this.camera.updateProjectionMatrix(); // Met à jour la matrice de projection
   }
+  
+  
 
   // Méthode pour accéder à l'instance de la caméra
   getCamera() {

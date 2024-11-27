@@ -1,14 +1,15 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
 
 
-import { CameraManager } from './src/managers/CameraManager.mjs';
-import { SceneManager } from './src/managers/SceneManager.mjs';
-import { LightManager } from './src/managers/LightManager.mjs';
-import { PlayerObject } from './src/managers/objectsmanager/PlayerObject.mjs';
+import { CameraManager } from './managers/CameraManager.mjs';
+import { SceneManager } from './managers/SceneManager.mjs';
+import { LightManager } from './managers/LightManager.mjs';
+import { PlayerObject } from './managers/objectsmanager/PlayerObject.mjs';
 import { scene, camera, lightManager, sceneManager, cameraManager } from './managerScript.js';
 document.addEventListener('DOMContentLoaded', () => {
-// const sceneManager = new SceneManager();
-// const scene = sceneManager.getScene();
-// const lightManager = new LightManager(scene);
+const sceneManager = new SceneManager();
+const scene = sceneManager.getScene();
+const lightManager = new LightManager(scene);
 
 
 const lightButton = document.querySelector('.btn-light');

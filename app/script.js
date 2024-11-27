@@ -1,3 +1,5 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("hello" );
   
@@ -32,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Audio
   const mainMenuTheme = document.getElementById("mainMenuTheme");
 
+
+
+
  buttonPlay.addEventListener("click", function () {
   if (!buttonPlay) {
     console.error("Le bouton 'buttonPlay' est introuvable dans le DOM !");
@@ -45,13 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   menuContent.style.display = "none";
   aqua.style.display = "none";
-  // simploniaLogo.style.display = "none";
   tablePhp.style.display = "none";
 
   // Créer les nouveaux éléments
   const contentFlexMenuGame = document.createElement("div");
   const containerMenuGame = document.createElement("div");
   const canvasGame = document.createElement("canvas");
+  canvasGame.id ="gameCanvas"
 
   // Appliquer le CSS aux nouveaux éléments
   menuBg.style.cssText = `
@@ -59,13 +64,27 @@ document.addEventListener("DOMContentLoaded", function () {
     align-items: center;
     flex-direction: column;
   `;
+  function loadScript(src) {
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = src;
+    document.head.appendChild(script); 
+  }
+  
+  
+  // loadScript('./three/godMode.js');
+  loadScript('./three/managerScriptPrincipal.mjs');
+  loadScript('./three/interfaceLogique.js');
+  loadScript('./three/gameLogique.js');
+
+
   contentFlexMenuGame.style.cssText = `
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid yellow;
-    width: 100vw;
+    width: 99vw;
     height: 500px;
     background: rgba(0, 0, 0, 0.5); 
     backdrop-filter: blur(10px);
@@ -89,13 +108,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   canvasGame.style.cssText = `
     border: 2px solid black;
-    width: 60%;
-    min-width: 400px;
-    height: 400px;
-    background: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
-    backdrop-filter: blur(10px); /* Effet de flou */
+    width:700px
+    min-width: 700px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px); 
   `;
-simploniaLogo.style.cssText = `    
+
+  simploniaLogo.style.cssText = `    
 width: 40%;
 position:absolute;
 top:-65px;
@@ -137,7 +157,7 @@ z-index: 1;
         <strong>${hero.name_Hero || "Inconnu"}</strong>
         <p>XP: ${hero.xp_Hero || 0}</p>
         <p>Niveau: ${hero.lvl_Hero || 0}</p>
-        <p>Rôle: ${hero.id_Role || "N/A"}</p>
+        <p>Rôle: ${hero.role_name || "N/A"}</p>
         </div>
       `;
 

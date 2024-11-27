@@ -34,6 +34,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'getHeroes') {
   <link
     href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
     rel="stylesheet" />
+    <script type="module" src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+  
+  
 </head>
 
 <body class="menu-bg">
@@ -206,7 +211,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'getHeroes') {
   <!-- Musique Menu Principal -->
   <audio id="mainMenuTheme" src="./src/audio/Basileus.mp3" loop></audio>
 
-  <!-- <script src="./script.js"></script> -->
+ 
+
 </body>
 
 </html>

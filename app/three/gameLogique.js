@@ -1,3 +1,6 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+
+
 import { sceneManager,} from './managerScript.js';
 
 
@@ -80,7 +83,7 @@ startButton.addEventListener('click', () => {
     rangeMove: selectedClass.moveRange,
     powerAttack: selectedClass.attackPower,
     speed: selectedClass.speed,
-    spritePath: './src/entities/characterPlayer/black_Sprite/idle/idle.gif',
+    spritePath: '../src/sprite/aqua_idle.gif',
     spriteHue:150
   };
 
