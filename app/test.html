@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Héros</title>
+</head>
+<body>
+    <h1>Liste des Héros</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>XP</th>
+                <th>Niveau</th>
+                <th>Rôle</th>
+            </tr>
+        </thead>
+        <tbody id="heroesTable">
+            <!-- Les données seront injectées ici -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fonction pour récupérer les héros en JSON
+        async function fetchHeroes() {
+            try {
+                const response = await fetch('index.php?action=getHeroes'); // Appelle le point d'entrée
+                const heroes = await response.json(); // Parse le JSON reçu
+                console.log(heroes);
+                
+                populateTable(heroes); // Manipule les données
+            } catch (error) {
+                console.error('Erreur lors de la récupération des héros :', error);
+            }
+        }
+
+        // Fonction pour insérer les héros dans la table HTML
+        function populateTable(heroes) {
+            const tableBody = document.getElementById('heroesTable');
+            tableBody.innerHTML = ''; // Vide la table avant d'ajouter les nouvelles données
+
+            heroes.forEach(hero => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${hero.id}</td>
+                    <td>${hero.name_Hero}</td>
+                    <td>${hero.xp_Hero}</td>
+                    <td>${hero.lvl_Hero}</td>
+                    <td>${hero.id_Role}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Appelle la fonction pour récupérer les données au chargement de la page
+        fetchHeroes();
+    </script>
+</body>
+</html>

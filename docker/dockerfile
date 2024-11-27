@@ -1,0 +1,22 @@
+FROM dunglas/frankenphp
+
+ENV SERVER_NAME=:80
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Copie du fichier PHP ini de développement pour plus de facilité pendant le dev
+RUN cp $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
+
+# Installer les extensions PHP nécessaires
+RUN install-php-extensions \
+    pdo_mysql \
+    gd \
+    intl \
+    zip \
+    opcache \
+    @composer
+
+# Copie des fichiers d'application dans le conteneur
+WORKDIR /app/public
+
+# Exécution de Composer et du serveur FrankenPHP
+CMD composer install && frankenphp php-server

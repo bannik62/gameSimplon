@@ -1,0 +1,49 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    container_name: frankenphp
+    volumes:
+      - ./app:/app/public
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+    depends_on:
+      - database
+
+  # Service pour la base de données
+  database:
+    image: mysql:8.0  # Utilise l'image MySQL
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Mot de passe root à "root" pour correspondre au db.php
+      MYSQL_DATABASE: game  # Nom de la base de données par défaut
+    volumes:
+      - db_data:/var/lib/mysql  # Monte un volume pour persister les données de la DB
+      - ./bdd/init.sql:/docker-entrypoint-initdb.d/init.sql:ro  # Monte le fichier init.sql
+    networks:
+      - app-network
+
+  # Service pour PhpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin  # Utilise l'image officielle PhpMyAdmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: database  # Définit le service de base de données à utiliser
+    ports:
+      - "8081:80"  # Expose le port 80 du conteneur sur le port 8081 de l'hôte
+    networks:
+      - app-network
+    depends_on:
+      - database
+
+# Définition du réseau
+networks:
+  app-network:
+    driver: bridge
+
+# Volume pour persister les données MySQL
+volumes:
+  db_data:

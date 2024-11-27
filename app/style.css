@@ -1,0 +1,333 @@
+/*
+MARK: Background
+*/
+
+/* Fond d'écrans du Menu*/
+.menu-bg {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url("./src/img/Simplonia-menu-BG.png");
+  margin: 0;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*
+MARK: Logo
+*/
+
+/* Logo Simplonia */
+#simploniaLogo {
+  display: block;
+  margin-top: 5%;
+  width: 90%;
+  height:  auto;
+}
+
+/*
+MARK: Accueil
+*/
+
+/* Page Accueil */
+.accueil-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Boutons dans Page Accueil */
+.simplonia-accueil-button {
+  position: relative;
+  display: inline-block;
+  margin-top: 100px;
+}
+
+.simplonia-accueil-button:hover {
+  cursor: pointer;
+}
+
+.simplonia-accueil-button img {
+  display: block;
+}
+
+/* Texte dans les boutons de la Page Accueil */
+.simplonia-accueil-button .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/*
+MARK: Menu Principal
+*/
+
+/* Page Menu Principal */
+.menu-content {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Boutons dans Page Menu */
+.simplonia-menu-button {
+  position: relative;
+  display: inline-block;
+}
+
+.simplonia-menu-button:hover {
+  cursor: pointer;
+}
+
+.simplonia-menu-button img {
+  display: block;
+}
+
+/* Texte dans les boutons de la Page menu */
+.simplonia-menu-button .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/*
+MARK: Options
+
+
+
+
+
+
+MARK: Personnages
+*/
+
+/* Page Options Personnages */
+.personnages-content {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Boutons dans Page Personnages */
+.simplonia-personnages-button {
+  position: relative;
+  display: inline-block;
+}
+
+.simplonia-personnages-button:hover {
+  cursor: pointer;
+}
+
+.simplonia-personnages-button img {
+  display: block;
+}
+
+/* Texte dans les boutons de la Page Personnages */
+.simplonia-personnages-button .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 32px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/* Bouton Retour de la Page Personnages */
+.simplonia-personnages-retour-button {
+  position: relative;
+  display: inline-block;
+}
+
+.simplonia-personnages-retour-button:hover {
+  cursor: pointer;
+}
+
+.simplonia-personnages-retour-button img {
+  display: block;
+}
+
+/* Texte dans le bouton Retour de la Page Personnages */
+.simplonia-personnages-retour-button .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/*
+MARK: Crédits
+*/
+
+/* Page Crédits */
+.credits-content {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Texte qui crédite les codeurs dans la Page Crédits */
+.text-credits {
+  display: flex;
+  color: white;
+  font-size: 32px;
+  font-family: "Special Elite", cursive;
+}
+
+/* Bouton Retour de la Page Crédits */
+.simplonia-credits-retour-button {
+  position: relative;
+  display: inline-block;
+}
+
+.simplonia-credits-retour-button:hover {
+  cursor: pointer;
+}
+
+.simplonia-credits-retour-button img {
+  display: block;
+}
+
+/* Texte dans le bouton Retour de la Page Crédits */
+.simplonia-credits-retour-button .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/*
+MARK: Ajouter
+
+
+
+
+
+
+MARK: Personnages
+*/
+
+/* Page Ajouter Personnage */
+.ajouter-personnage-content {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Titre dans Page Ajouter Personnage */
+.simplonia-ajouter-personnage-title {
+  position: relative;
+  display: inline-block;
+}
+
+.simplonia-ajouter-personnage-title img {
+  display: block;
+}
+
+/* Texte dans le Titre de la Page Personnage */
+.simplonia-ajouter-personnage-title .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 32px;
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/* Style du Conteneur de la création du Personnage */
+.simplonia-form-container {
+    margin: 15px;
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    border: solid 2px black;
+  }
+  
+  .simplonia-form-content-img {
+    margin-left: 50px;
+    width: 120px;
+    height: 150px;
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .simplonia-form-content {
+    width: 540px;
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style du Sprite Personnage dans le Conteneur */
+  .sprite-menu {
+    height: 150px;
+  }
+
+/* Style de l'input du Nom du Héros */
+.simplonia-input {
+  color: black !important;
+}
+
+/* Style du Selection de la Classe du Héros */
+#role-selector {
+  color: black;
+  background: transparent;
+  text-align: center;
+}
+
+/* Style de la Liste des Classes */
+#role-selector option {
+  background: #f0a51a;
+  color: black;
+}
